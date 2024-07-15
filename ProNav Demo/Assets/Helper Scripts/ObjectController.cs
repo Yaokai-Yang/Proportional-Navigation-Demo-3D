@@ -8,6 +8,7 @@ public class ObjectController : MonoBehaviour
     public float speed = 5;
     public float maneuverability = 5;
     public Quaternion targetRotation;
+
     void FixedUpdate()
     {
         // moves object forward by speed
