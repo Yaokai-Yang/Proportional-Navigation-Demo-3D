@@ -11,12 +11,18 @@ public class TargetRandom: MonoBehaviour
     public void Start()
     {
         controller.targetRotation = Random.rotationUniform;
+
+        // for testing on the yz-plane
+        controller.targetRotation.eulerAngles = new Vector3(Random.Range(-180, 180), 0, 0);
     }
     public void FixedUpdate()
     {
         if (transform.localRotation == controller.targetRotation)
         {
             controller.targetRotation = Random.rotationUniform;
+
+            // for testing on the yz-plane
+            controller.targetRotation.eulerAngles = new Vector3(Random.Range(-180, 180), 0, 0);
         }
     }
 }

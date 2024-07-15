@@ -6,7 +6,7 @@ public class TrueProNav : MonoBehaviour
 {
     public ObjectController controller;
     public Transform target;
-    public int proportionality_constant;      // variable N in the guidance law
+    public float proportionality_constant;      // variable N in the guidance law
 
     public Vector3 last_LOS;                   // LOS is calculated as a position vector from the target to the pursuer
     public Vector3 current_LOS;

@@ -20,7 +20,7 @@ public class ObjectController : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * 2, Color.black);
-        Debug.DrawRay(transform.position, targetRotation * Vector3.forward * 2, Color.white);
+        Debug.DrawRay(transform.position, transform.forward, Color.black);
+        Debug.DrawRay(transform.position, targetRotation * Vector3.forward, Color.white);
     }
 }
