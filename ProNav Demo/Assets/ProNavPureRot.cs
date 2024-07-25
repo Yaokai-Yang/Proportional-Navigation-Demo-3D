@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProNavPureRot : ProNavBasics
 {
+    // Change_in_flight_angle = N * change_in_LOS_angle
     protected override Vector3 doUpdate(float deltaTime)
     {
         float deltaLOS = getDeltaLOS();

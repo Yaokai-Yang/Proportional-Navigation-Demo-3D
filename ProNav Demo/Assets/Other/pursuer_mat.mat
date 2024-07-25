@@ -19,7 +19,10 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: :m_LightmapFlags :m_EnableInstancingVariants :m_DoubleSidedGI
+    :m_CustomRenderQueue _BumpMap _DetailAlbedoMap _DetailMask _DetailNormalMap _DetailNormalMapScale
+    _Glossiness _GlossyReflections _Metallic _MetallicGlossMap _OcclusionMap _ParallaxMap
+    _SmoothnessTextureChannel _SpecularHighlights _UVSec
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
