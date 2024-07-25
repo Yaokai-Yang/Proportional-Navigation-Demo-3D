@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 17055358}
   - component: {fileID: 17055357}
   m_Layer: 0
-  m_Name: Pure Pursuer
+  m_Name: Always Look At
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,9 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  maneuverability: 60
-  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  maneuverabilityRot: 0.35
+  maneuverabilityAccel: 0
+  targetVelocity: {x: 0, y: 0, z: 7}
+  velocity: {x: 0, y: 0, z: 7}
 --- !u!96 &17055359
 TrailRenderer:
   serializedVersion: 3
@@ -365,13 +366,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17055356}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214680633
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,9 +619,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  maneuverability: 40
-  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  maneuverabilityRot: 0.25
+  maneuverabilityAccel: 0
+  targetVelocity: {x: 0, y: 0, z: 5}
+  velocity: {x: 0, y: 0, z: 5}
 --- !u!114 &540445108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +630,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540445106}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24eb6f5eae9524c4b9a50ad009aba4db, type: 3}
   m_Name: 
@@ -964,7 +966,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -989,7 +991,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 29.43
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1013,8 +1015,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 14.59, y: 5, z: 0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 10, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1049,9 +1051,9 @@ GameObject:
   - component: {fileID: 1125035312}
   - component: {fileID: 1125035311}
   - component: {fileID: 1125035316}
-  - component: {fileID: 1125035318}
+  - component: {fileID: 1125035317}
   m_Layer: 0
-  m_Name: Pursuer
+  m_Name: Pure ProNav Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,13 +1251,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125035310}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1125035316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,10 +1270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  maneuverability: 60
-  targetRotation: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1125035318
+  maneuverabilityRot: 0.35
+  maneuverabilityAccel: 0.25
+  targetVelocity: {x: 0, y: 0, z: 7}
+  velocity: {x: 0, y: 0, z: 7}
+--- !u!114 &1125035317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1280,7 +1283,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1125035310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d4227359687eb34ca9ad3551cfc3819, type: 3}
+  m_Script: {fileID: 11500000, guid: 3afa294bcc8f5904694b822bac2a5416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1125035316}
@@ -1288,7 +1291,6 @@ MonoBehaviour:
   proportionality_constant: 3
   last_LOS: {x: 0, y: 0, z: 0}
   current_LOS: {x: 0, y: 0, z: 0}
-  delta_LOS: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1237539016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1958945111
 Transform:
   m_ObjectHideFlags: 0
