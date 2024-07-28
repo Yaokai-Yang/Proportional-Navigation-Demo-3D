@@ -18,8 +18,8 @@ public class TargetRandom: MonoBehaviour
     {
         if ((controller.targetVelocity - controller.velocity).magnitude < 0.05f)
         {
-            Vector2 rand = Random.insideUnitCircle.normalized * controller.targetVelocity.magnitude;
-            controller.targetVelocity = new Vector3(0, rand.x, rand.y);
+            Vector3 rand = Random.onUnitSphere * controller.targetVelocity.magnitude;
+            controller.targetVelocity = rand;
         }
     }
 }
