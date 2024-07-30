@@ -23,7 +23,7 @@ public class ZeroEffortMiss : ProNavBasics
         Vector3 ZEM_proj_LOS = Vector3.Project(zero_effort_miss, LOS_unit);     // ZEM projected onto LOS
         Vector3 ZEM_normal = zero_effort_miss - ZEM_proj_LOS;                   // ZEM normal to LOS
 
-        Vector3 acceleration = proportionality_constant * ZEM_normal / (time_to_go * time_to_go) * deltaTime;
+        Vector3 acceleration = proportionality_constant * ZEM_normal / (time_to_go * time_to_go);
         return controller.velocity + acceleration;
     }
 }
