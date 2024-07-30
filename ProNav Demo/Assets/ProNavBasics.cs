@@ -9,18 +9,17 @@ public abstract class ProNavBasics : MonoBehaviour
     public Transform target;
     public float proportionality_constant;      // variable N in the guidance law
         
-    public Vector3 last_LOS;                    // LOS is calculated as a position vector from the target to the pursuer
-    public Vector3 current_LOS;
+    private Vector3 last_LOS;                   // LOS is calculated as a position vector from the target to the pursuer
+    private Vector3 current_LOS;
 
-    // returns a delta LOS as a float in degrees and closing velocity as a 3-vector
-    protected (float, float) getDeltaLOS()
+    // returns delta LOS as a quaternion
+    protected Quaternion getDeltaLOS()
     {
-        current_LOS = target.position - transform.position;                                 // get current LOS
-        float delta_LOS = Vector3.SignedAngle(last_LOS, current_LOS, Vector3.right);        // compare with previous LOS to get change in LOS (only works in a single plane for now) 
-        float closing_velocity = -(current_LOS.magnitude - last_LOS.magnitude);
-        last_LOS = current_LOS;                                                             // update last_LOS for next iteration
+        current_LOS = target.position - transform.position;                         // get current LOS
+        Quaternion delta_LOS = Quaternion.FromToRotation(last_LOS, current_LOS);    // compare with previous LOS to get change in LOS
+        last_LOS = current_LOS;                                                     // update last_LOS for next iteration
 
-        return (delta_LOS, closing_velocity);
+        return delta_LOS;
     }
 
     protected abstract Vector3 doUpdate(float deltaTime);

@@ -6,10 +6,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ZeroEffortMiss : ProNavBasics
 {
+    // acceleration = N * ZEM_perp / (time_to_go ^ 2)
+    // gives acceleration commands perpendicular to the line of sight based on the 'Zero Effort Miss vector' and an estimated time until collision
+    // the above equation simplifies to the proportional navigation law: acceleration = N * closing_velocity * change_in_LOS [Zarchan, 2012, pg.32-33]
     protected override Vector3 doUpdate(float deltaTime)
     {
         // time_to_go -= deltaTime;
-
+        
         Vector3 relative_position = target.position - transform.position;
         Vector3 relative_velocity = target.GetComponent<ObjectController>().velocity - controller.velocity;
 
