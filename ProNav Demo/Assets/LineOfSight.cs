@@ -6,6 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 public class LineOfSight : ProNavBasics
 {
     // acceleration = N * closing_velocity * LOS_rate
+    // gives acceleration commands perpendicular to the line of sight based on the closing velocity and change in LOS
+    // Equation on [Zarchan, 2012, pg.14], adapted for 3D.
 
     private Vector3 last_LOS;                   // LOS is calculated as a position vector from the target to the pursuer
     private Vector3 current_LOS;
@@ -26,12 +28,13 @@ public class LineOfSight : ProNavBasics
         (Quaternion delta_LOS, float closing_velocity) = getDelta(deltaTime);
         float LOS_rate = Quaternion.Angle(Quaternion.identity, delta_LOS) * Mathf.Deg2Rad / deltaTime;
 
-        Vector3 desired_acceleration = (delta_LOS * controller.velocity) - controller.velocity;
+        // gets a unit vector orthogonal to the LOS in the direction to accelerate
+        // the desired direction of travel (as a velocity) is described by the current velocity rotated by delta_LOS
+        // the difference of the 'desired' velocity and current velocity, projected onto the plane whose normal is the LOS, gives the direction of acceleration
+        Vector3 desired_acceleration = (delta_LOS * controller.velocity) - controller.velocity;             
         Vector3 acceleration_norm = Vector3.ProjectOnPlane(desired_acceleration, current_LOS).normalized;
+
         Vector3 acceleration = acceleration_norm * proportionality_constant * closing_velocity * LOS_rate;
-
-        Debug.DrawRay(transform.position, acceleration * 5);
-
         return controller.velocity + acceleration;
     }
 
