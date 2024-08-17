@@ -26,15 +26,17 @@ public class LineOfSight : ProNavBasics
     protected override Vector3 doUpdate(float deltaTime)
     {
         (Quaternion delta_LOS, float closing_velocity) = getDelta(deltaTime);
-        float LOS_rate = Quaternion.Angle(Quaternion.identity, delta_LOS) * Mathf.Deg2Rad / deltaTime;
+        float LOS_rate = Quaternion.Angle(Quaternion.identity, delta_LOS) / deltaTime * Mathf.Deg2Rad;
+        Debug.Log(LOS_rate);
 
         // gets a unit vector orthogonal to the LOS in the direction to accelerate
         // the desired direction of travel (as a velocity) is described by the current velocity rotated by delta_LOS
         // the difference of the 'desired' velocity and current velocity, projected onto the plane whose normal is the LOS, gives the direction of acceleration
-        Vector3 desired_acceleration = (delta_LOS * controller.velocity) - controller.velocity;             
-        Vector3 acceleration_norm = Vector3.ProjectOnPlane(desired_acceleration, current_LOS).normalized;
+        Vector3 desired_velocity = (delta_LOS * controller.velocity) - controller.velocity;
+        Vector3 acceleration_norm = Vector3.ProjectOnPlane(desired_velocity, current_LOS).normalized;
 
-        Vector3 acceleration = acceleration_norm * proportionality_constant * closing_velocity * LOS_rate;
+        Vector3 acceleration = acceleration_norm * Mathf.Abs(proportionality_constant * closing_velocity * LOS_rate);
+
         return controller.velocity + acceleration;
     }
 
