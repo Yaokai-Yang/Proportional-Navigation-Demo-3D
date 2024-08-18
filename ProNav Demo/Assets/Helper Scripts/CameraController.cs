@@ -5,8 +5,10 @@ using static UnityEditor.FilePathAttribute;
 
 public class CameraController : MonoBehaviour
 {
+    public Transform target;
+
     public float sensitivity;
-    private Vector2 rotation = Vector2.zero;
+    private Vector2 rotation = new Vector2(0, -180);
 
     public float max_horizontal_speed;
     private Vector2 horizontal_speed = Vector2.zero;
@@ -17,9 +19,10 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        transform.LookAt(target);
     }
 
-    void Update()
+    private void Update()
     {
         rotation.y += Input.GetAxis("mouse_x");
         rotation.x += -Input.GetAxis("mouse_y");

@@ -27,7 +27,6 @@ public class LineOfSight : ProNavBasics
     {
         (Quaternion delta_LOS, float closing_velocity) = getDelta(deltaTime);
         float LOS_rate = Quaternion.Angle(Quaternion.identity, delta_LOS) / deltaTime * Mathf.Deg2Rad;
-        Debug.Log(LOS_rate);
 
         // gets a unit vector orthogonal to the LOS in the direction to accelerate
         // the desired direction of travel (as a velocity) is described by the current velocity rotated by delta_LOS
@@ -40,7 +39,7 @@ public class LineOfSight : ProNavBasics
         return controller.velocity + acceleration;
     }
 
-    void Awake()
+    private void OnEnable()
     {
         last_LOS = target.position - transform.position;
     }
