@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.FilePathAttribute;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;
-
     public float sensitivity;
     private Vector2 rotation = new Vector2(0, -180);
 
@@ -19,7 +18,6 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        transform.LookAt(target);
     }
 
     private void Update()
@@ -35,5 +33,12 @@ public class CameraController : MonoBehaviour
 
         vertical_speed = Input.GetAxis("y_movement");
         transform.localPosition += new Vector3(0, vertical_speed, 0) * max_vertical_speed * Time.deltaTime;
+
+        // Code for follow-camera
+        /*
+        GameObject target = GameObject.Find("Target");
+        GameObject pursuer = GameObject.FindGameObjectWithTag("Pursuer");
+        transform.LookAt(Vector3.Lerp(target.transform.position, pursuer.transform.position, 0.5f));
+        */
     }
 }

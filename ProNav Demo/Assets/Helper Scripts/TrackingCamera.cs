@@ -21,16 +21,15 @@ public class TrackingCamera : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && targets_list.Length != 0)
         {
-            Debug.Log("Click");
             current_target++;
             if (current_target >= targets_list.Length)
             {
                 current_target = 0;
             }
         }
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonUp(1) && targets_list.Length != 0)
         {
             current_target--;
             if (current_target <= -1)
