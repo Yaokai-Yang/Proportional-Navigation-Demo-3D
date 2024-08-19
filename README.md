@@ -24,7 +24,3 @@ https://github.com/user-attachments/assets/9a7577f2-78fe-4703-9f28-719bf0b521b7
 --- 
 ### Demo with both
 https://github.com/user-attachments/assets/ee0c18b3-a27e-4e48-8ac2-ec65c074ef6e
-
-
-ProNav Demo/Assets/ZeroEffortMiss.cs
-
