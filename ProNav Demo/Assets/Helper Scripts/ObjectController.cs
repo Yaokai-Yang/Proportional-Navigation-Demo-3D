@@ -57,14 +57,6 @@ public class ObjectController : MonoBehaviour
 
             // tries to achieve the target velocity via rotation & acceleration
             velocity = Vector3.RotateTowards(velocity, target_velocity, maneuverability_rot * Mathf.PI * Time.fixedDeltaTime, maneuverability_accel * Time.fixedDeltaTime);
-
-            // trail length rendering
-            timer += Time.deltaTime;
-            trail.time = Mathf.Lerp(paused_trail_time, trail_time, Mathf.Clamp(timer / trail_time, 0f, 1f));
-        }
-        else if (!reset)
-        {
-            trail.time += Time.deltaTime;
         }
     }
 
@@ -72,5 +64,16 @@ public class ObjectController : MonoBehaviour
     {
         Debug.DrawRay(transform.position, target_velocity, Color.black);
         Debug.DrawRay(transform.position, velocity, Color.grey);
+
+        // trail length rendering
+        if (!paused)
+        {
+            timer += Time.deltaTime;
+            trail.time = Mathf.Lerp(paused_trail_time, trail_time, Mathf.Clamp(timer / trail_time, 0f, 1f));
+        }
+        else if (!reset)
+        {
+            trail.time += Time.deltaTime;
+        }
     }
 }

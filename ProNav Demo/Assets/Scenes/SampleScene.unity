@@ -170,12 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maneuverability_rot: 0.25
+  maneuverability_rot: 0.35
   maneuverability_accel: 0.35
   target_velocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   starting_velocity: {x: 0, y: 0, z: 6}
-  starting_position: {x: 0, y: 0, z: 0}
+  starting_position: {x: -2, y: 0, z: 0}
   paused: 0
   reset: 0
   trail: {fileID: 17055359}
@@ -372,7 +372,7 @@ Transform:
   m_GameObject: {fileID: 17055356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maneuverability_rot: 0.25
+  maneuverability_rot: 0.35
   maneuverability_accel: 0.35
   target_velocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
@@ -1144,7 +1144,7 @@ Transform:
   m_GameObject: {fileID: 540445106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 40}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1199,12 +1199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maneuverability_rot: 0.25
+  maneuverability_rot: 0.35
   maneuverability_accel: 0.35
   target_velocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   starting_velocity: {x: 0, y: 0, z: 6}
-  starting_position: {x: 0, y: 0, z: 0}
+  starting_position: {x: 2, y: 0, z: 0}
   paused: 0
   reset: 0
   trail: {fileID: 630271047}
@@ -1401,7 +1401,7 @@ Transform:
   m_GameObject: {fileID: 630271044}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51a72e63e0702d47a50515a61ce00e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maneuverability_rot: 0.25
+  maneuverability_rot: 0.35
   maneuverability_accel: 0.35
   target_velocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
