@@ -13,6 +13,9 @@ public abstract class ProNavBasics : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.targetVelocity = doUpdate(Time.deltaTime);
+        if (!controller.paused)
+        {
+            controller.target_velocity = doUpdate(Time.deltaTime);
+        }
     }
 }

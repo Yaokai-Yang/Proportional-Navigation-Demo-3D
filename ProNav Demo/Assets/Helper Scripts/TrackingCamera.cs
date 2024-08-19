@@ -21,7 +21,13 @@ public class TrackingCamera : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && targets_list.Length != 0)
+        if (targets_list.Length == 0)       // if no pursuers are active
+        {
+            target_UI.text = "No Pursuer";
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
         {
             current_target++;
             if (current_target >= targets_list.Length)
@@ -29,7 +35,7 @@ public class TrackingCamera : MonoBehaviour
                 current_target = 0;
             }
         }
-        else if (Input.GetMouseButtonUp(1) && targets_list.Length != 0)
+        else if (Input.GetMouseButtonUp(1))
         {
             current_target--;
             if (current_target <= -1)

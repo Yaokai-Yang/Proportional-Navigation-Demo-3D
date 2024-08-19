@@ -16,10 +16,10 @@ public class TargetRandom: MonoBehaviour
     }
     public void FixedUpdate()
     {
-        if ((controller.targetVelocity - controller.velocity).magnitude < 0.05f)
+        if ((controller.target_velocity - controller.velocity).magnitude < 0.05f)
         {
-            Vector3 rand = Random.onUnitSphere * controller.targetVelocity.magnitude;
-            controller.targetVelocity = rand;
+            Vector3 rand = Random.onUnitSphere * controller.target_velocity.magnitude;
+            controller.target_velocity = rand;
         }
     }
 }
