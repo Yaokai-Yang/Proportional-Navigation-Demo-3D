@@ -14,6 +14,8 @@ public class TrackingCamera : MonoBehaviour
     private int current_target = 0;
     public TextMeshProUGUI target_UI;
 
+    public bool switching_active;
+
     private void Awake()
     {
         getTargets();
@@ -21,7 +23,14 @@ public class TrackingCamera : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && targets_list.Length != 0)
+        if (targets_list.Length == 0)       // if no pursuers are active
+        {
+            target_UI.text = "No Pursuer";
+            return;
+        }
+
+        // left mouse cycles forward
+        if (Input.GetMouseButtonDown(0) && switching_active)
         {
             current_target++;
             if (current_target >= targets_list.Length)
@@ -29,14 +38,15 @@ public class TrackingCamera : MonoBehaviour
                 current_target = 0;
             }
         }
-        else if (Input.GetMouseButtonUp(1) && targets_list.Length != 0)
+
+        // right mouse cycles backward
+        if (Input.GetMouseButtonUp(1) && switching_active)
         {
             current_target--;
             if (current_target <= -1)
             {
                 current_target = targets_list.Length - 1;
             }
-            
         }
 
         target = targets_list[current_target].transform;

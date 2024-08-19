@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Uploaded media files
 /[Mm]edia/ 
+
+# Builds
+/[Bb]uilds/

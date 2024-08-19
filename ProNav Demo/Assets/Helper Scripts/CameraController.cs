@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class CameraController : MonoBehaviour
 {
@@ -15,17 +14,25 @@ public class CameraController : MonoBehaviour
     public float max_vertical_speed;
     private float vertical_speed = 0;
 
+    public bool mouselook;
+    public TrackingCamera tracking_camera;
+
     private void Start()
     {
+        mouselook = true;
         Cursor.lockState = CursorLockMode.Locked;
+        tracking_camera.switching_active = true;
     }
 
     private void Update()
     {
-        rotation.y += Input.GetAxis("mouse_x");
-        rotation.x += -Input.GetAxis("mouse_y");
-        rotation.x = Mathf.Clamp(rotation.x, -180, 180);
-        transform.eulerAngles = (Vector2)rotation * sensitivity;
+        if (mouselook)
+        {
+            rotation.y += Input.GetAxis("mouse_x");
+            rotation.x += -Input.GetAxis("mouse_y");
+            rotation.x = Mathf.Clamp(rotation.x, -180, 180);
+            transform.eulerAngles = (Vector2)rotation * sensitivity;
+        }
 
         horizontal_speed.x = Input.GetAxis("x_movement");
         horizontal_speed.y = Input.GetAxis("z_movement");
@@ -33,6 +40,22 @@ public class CameraController : MonoBehaviour
 
         vertical_speed = Input.GetAxis("y_movement");
         transform.localPosition += new Vector3(0, vertical_speed, 0) * max_vertical_speed * Time.deltaTime;
+
+        if (Input.GetButtonDown("esc"))
+        {
+            if (mouselook)
+            {
+                mouselook = false;
+                Cursor.lockState = CursorLockMode.None;
+                tracking_camera.switching_active = false;
+            }
+            else
+            {
+                mouselook = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                tracking_camera.switching_active = true;
+            }
+        }
 
         // Code for follow-camera
         /*
