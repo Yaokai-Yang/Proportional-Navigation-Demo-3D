@@ -16,7 +16,7 @@ public class ObjectController : MonoBehaviour
         velocity = targetVelocity;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // moves object forward by speed
         transform.localPosition += velocity * Time.fixedDeltaTime;

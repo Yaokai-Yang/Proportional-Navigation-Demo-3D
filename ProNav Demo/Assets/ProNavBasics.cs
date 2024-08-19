@@ -11,7 +11,7 @@ public abstract class ProNavBasics : MonoBehaviour
 
     protected abstract Vector3 doUpdate(float deltaTime);
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         controller.targetVelocity = doUpdate(Time.deltaTime);
     }
