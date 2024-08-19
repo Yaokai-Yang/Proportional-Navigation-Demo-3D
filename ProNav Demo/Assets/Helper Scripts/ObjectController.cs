@@ -47,6 +47,10 @@ public class ObjectController : MonoBehaviour
         timer = 0;
         paused_trail_time = trail.time;
     }
+    public void fixVelocity()
+    {
+        target_velocity = velocity;
+    }
 
     private void FixedUpdate()
     {
