@@ -30,6 +30,7 @@ public class ObjectController : MonoBehaviour
         target_velocity = starting_velocity;
 
         trail.Clear();
+        trail.enabled = false;
     }
 
     public void onPause()
@@ -46,6 +47,7 @@ public class ObjectController : MonoBehaviour
 
         timer = 0;
         paused_trail_time = trail.time;
+        trail.enabled = true;
     }
     public void fixVelocity()
     {

@@ -15,14 +15,6 @@ public class CameraController : MonoBehaviour
     private float vertical_speed = 0;
 
     public bool mouselook;
-    public TrackingCamera tracking_camera;
-
-    private void Start()
-    {
-        mouselook = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        tracking_camera.switching_active = true;
-    }
 
     private void Update()
     {
@@ -40,22 +32,6 @@ public class CameraController : MonoBehaviour
 
         vertical_speed = Input.GetAxis("y_movement");
         transform.localPosition += new Vector3(0, vertical_speed, 0) * max_vertical_speed * Time.deltaTime;
-
-        if (Input.GetButtonDown("esc"))
-        {
-            if (mouselook)
-            {
-                mouselook = false;
-                Cursor.lockState = CursorLockMode.None;
-                tracking_camera.switching_active = false;
-            }
-            else
-            {
-                mouselook = true;
-                Cursor.lockState = CursorLockMode.Locked;
-                tracking_camera.switching_active = true;
-            }
-        }
 
         // Code for follow-camera
         /*
