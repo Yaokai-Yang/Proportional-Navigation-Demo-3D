@@ -1,10 +1,11 @@
 # Proportional Navigation Demo in 3D
-This demo implements proportional navigation in two different ways: zero-effort miss ([ZEM](ProNav%20Demo/Assets/ZeroEffortMiss.cs)) and line-of-sight ([LOS](ProNav%20Demo/Assets/LineOfSight.cs)). **TODO!** ~~Users can create specific engagement scenarios by modifying each object's starting conditions and maneuverability, as well as the proportionality constant ($N$) for the pursuers~~. 
+This demo implements proportional navigation in two different ways: zero-effort miss ([ZEM](ProNav%20Demo/Assets/ZeroEffortMiss.cs)) and line-of-sight ([LOS](ProNav%20Demo/Assets/LineOfSight.cs)). Users can create specific engagement scenarios by modifying each object's starting conditions and maneuverability, as well as the proportionality constant ($N$) for the pursuers. 
 
 Made with Unity. The guidance laws are from Ben Dickinson's ["Guidance Fundamentals Tutorial"](https://www.youtube.com/playlist?list=PLcmbTy9X3gXt02z1wNy4KF5ui0tKxdQm7) series on Youtube and Paul Zarchan's [Tactical and Strategic Missile Guidance (6th ed)](https://arc.aiaa.org/doi/10.2514/4.868948).   
 
-In the video examples below, the green pursuer always attempts to reach where the target (red) currently is, it is essentially a control experiment. 
+In the examples below, the green pursuer always attempts to reach where the target (red) currently is, it is essentially a control experiment. 
 
+![Builds Screenshot 2024 08 23 - 21 50 40 29](https://github.com/user-attachments/assets/1f516309-a40e-4bb0-999c-441b838d6ec3)
 
 ## Controls ##
 - Mouse movements are used to rotate the camera
